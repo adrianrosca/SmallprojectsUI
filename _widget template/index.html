@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <title>cpa.widgets.map</title>
+        <link rel="icon" href="favicon.ico" />
+
+        <!-- bower:css -->
+        <!-- endbower -->
+
+
+        <!-- bower:js -->
+        <script src="bower_components/jquery/dist/jquery.js"></script>
+        <script src="bower_components/angular/angular.js"></script>
+        <!-- endbower -->
+        
+
+        <!-- app code -->
+        <script src="src/widget_template.js"></script>
+        <link href="src/widget_template.css" rel="stylesheet" />
+
+
+        <!-- from cdn justr for this code example, not included in the dist -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+
+
+
+        <script>
+
+
+            function loadMockItems()
+            {
+                return [
+                    { name: "Item A" },
+                    { name: "Item B" },
+                    { name: "Item C" },
+                ];
+            }
+
+
+            angular
+                .module("testApp", ["cpa.widgets.widget_template"])
+                .controller("AppCtrl", function ($scope)
+                {
+                    $scope.items = 
+                        loadMockItems(); // dummy method, replace with your mock loading method
+
+
+                    $scope.pushItem = function ()
+                    {
+                        $scope
+                            .items
+                            .push
+                            ({
+                                name: "Item X"
+                            });
+                    };
+
+
+                    $scope.popItem = function ()
+                    {
+                        $scope
+                            .items
+                            .pop();
+                    };
+
+
+                    $scope.clickItem = function (item)
+                    {
+                        alert("You clicked " + item.name);
+                    }
+                });
+
+        </script>
+
+
+    </head>
+
+<body ng-app="testApp" ng-controller="AppCtrl">
+    
+    <button type="button" class="btn btn-default" ng-click="pushItem()">Push item</button>
+    <button type="button" class="btn btn-default" ng-click="popItem()">Pop item</button>
+    <hr />
+
+    <cpa-widget-template items="items" click-marker="clicItem(data)" style="width:800px; height:400px; display: block; border: 1px solid black;"></cpa-widget-template>
+
+    <script src="//localhost:35729/livereload.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,28 @@
+{
+    "name": "cpa.widgets.widget_template",
+    "version": "0.0.0",
+    "authors":
+    [
+        "Adrian Rosca <arosca@cpaglobal.com>"
+    ],
+    "main":
+    [
+        "src/widget_template.js",
+        "src/widget_template.css"
+    ],
+    "license": "MIT",
+    "private": true,
+    "ignore":
+    [
+        "**/.*",
+        "node_modules",
+        "bower_components",
+        "test",
+        "tests"
+    ],
+    "dependencies":
+    {
+        "jquery": "2.1.1",
+        "angular": "1.3.4"
+    }
+}
